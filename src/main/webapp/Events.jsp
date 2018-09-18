@@ -6,7 +6,7 @@
 
 <t:layout title="Events">
 	<ol class="breadcrumb">
-		<li><a href="/java-calendar-demo/Calendars?selected-user=${selectedUser}">All Calendars</a></li>
+		<li><a href="./Calendars?selected-user=${selectedUser}">All Calendars</a></li>
 		<li class="active">Current Calendar</li>
 	</ol>
 	<div class="panel panel-default">

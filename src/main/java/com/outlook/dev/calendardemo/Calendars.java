@@ -2,6 +2,7 @@
 package com.outlook.dev.calendardemo;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,9 @@ import com.outlook.dev.calendardemo.dto.User;
 import com.outlook.dev.calendardemo.msgraph.GraphCalendarService;
 import com.outlook.dev.calendardemo.msgraph.GraphServiceHelper;
 import com.outlook.dev.calendardemo.msgraph.GraphUserService;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 /**
  * Servlet implementation class Calendars
@@ -54,8 +58,14 @@ public class Calendars extends HttpServlet {
 			// It is probably a better idea to cache the user list in a database somewhere
 			// Get list of users from Graph
 			GraphUserService userService = GraphServiceHelper.getUserService();
-			GraphArray<OrgUser> users = userService.getUsers("v1.0", user.getAccessToken()).execute().body();
-			request.setAttribute("users", users.getValue());
+            Response<GraphArray<OrgUser>> userCall = userService.getUsers("v1.0", user.getAccessToken()).execute();
+            if(userCall.code() != HttpURLConnection.HTTP_OK) {
+                request.setAttribute("error_message", String.format("There was a problem getting the list of users '%s'", userCall.message()));
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            } else {
+                GraphArray<OrgUser> users = userCall.body();
+                request.setAttribute("users", users.getValue());                
+            }
 		}		
 		
 		GraphCalendarService calService = GraphServiceHelper.getCalendarService();

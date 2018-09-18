@@ -41,7 +41,7 @@
 			<c:if test="${not empty calendars}">
 				<c:forEach var="calendar" items="${calendars}">
 					<tr>
-						<td><a href="/java-calendar-demo/Events?selectedUser=${selectedUser}&calId=${calendar.getId()}">${calendar.getName()}</a></td>
+						<td><a href="./Events?selectedUser=${selectedUser}&calId=${calendar.getId()}">${calendar.getName()}</a></td>
 						<td>${calendar.getColor()}</td>
 						<td>
 							<form class="form-inline" method="post">

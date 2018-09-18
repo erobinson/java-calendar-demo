@@ -6,8 +6,8 @@
 
 <t:layout title="Event: ${event.getSubject()}">
 	<ol class="breadcrumb">
-		<li><a href="/java-calendar-demo/Calendars?selected-user=${selectedUser}">All Calendars</a></li>
-		<li><a href="/java-calendar-demo/Events?selectedUser=${selectedUser}&calId=${calId}">Current Calendar</a></li>
+		<li><a href="./Calendars?selected-user=${selectedUser}">All Calendars</a></li>
+		<li><a href="./Events?selectedUser=${selectedUser}&calId=${calId}">Current Calendar</a></li>
 		<li class="active">Event Details</li>
 	</ol>
 	<c:if test="${not empty isUpdate}">

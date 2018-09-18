@@ -30,13 +30,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/java-calendar-demo">Java Calendar Demo</a>
+          <a class="navbar-brand" href="./index.jsp">Java Calendar Demo</a>
         </div>
         <c:if test="${not empty user}">
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	          	<li><a href="/java-calendar-demo/Calendars">Signed in as ${user.getDisplayName()}</a></li>
-	            <li><a href="/java-calendar-demo/SignOut">Sign out</a></li>
+	          	<li><a href="./Calendars">Signed in as ${user.getDisplayName()}</a></li>
+	            <li><a href="./SignOut">Sign out</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
         </c:if>
