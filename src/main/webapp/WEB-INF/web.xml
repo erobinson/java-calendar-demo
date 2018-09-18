@@ -7,7 +7,7 @@
   </servlet>
   <servlet>
     <servlet-name>CalendarOperations</servlet-name>
-    <servlet-class>com.outlook.dev.calendardemo.CalendarOperations</servlet-class>
+    <servlet-class>com.outlook.dev.calendardemo.rawrest.CalendarOperations</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>AuthorizeUser</servlet-name>
